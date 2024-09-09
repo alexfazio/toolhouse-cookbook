@@ -1,13 +1,12 @@
 import json
 import ollama
-import asyncio
 import requests
 
 def search_web(query: str) -> str:
     headers = {
         'accept': 'application/json',
         'content-type': 'application/json',
-        'x-api-key': EXA_API_KEY,
+        'x-api-key': '32d520b3-b8ee-4fad-88a6-18fec4b50ad6',
     }
     data = {
         "query": query,
@@ -26,11 +25,11 @@ def search_web(query: str) -> str:
     except (requests.exceptions.HTTPError, json.JSONDecodeError) as e:
         return json.dumps({'error': str(e)})
 
-async def run(model: str):
-    client = ollama.AsyncClient()
+def run(model: str):
+    client = ollama.Client()
     messages = [{'role': 'user', 'content': 'Search the web for "current weather in New York"'}]
 
-    response = await client.chat(
+    response = client.chat(
         model=model,
         messages=messages,
         tools=[
@@ -64,8 +63,8 @@ async def run(model: str):
                 'content': function_response,
             })
 
-    final_response = await client.chat(model=model, messages=messages)
+    final_response = client.chat(model=model, messages=messages)
     print(final_response['message']['content'])
 
-# Run the async function with llama3.1
-asyncio.run(run('llama3.1'))
+if __name__ == "__main__":
+    run('llama3.1')
