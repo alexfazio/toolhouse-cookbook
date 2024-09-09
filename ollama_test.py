@@ -32,7 +32,7 @@ print(f"Using model: {MODEL}")
 messages = [
     {
         "role": "user",
-        "content": "Generate FizzBuzz code. Execute it to show me the results up to 10."
+        "content": "Search the web for current weather in New York using exa_web_search"
     }
 ]
 print(f"Initial message: {messages[0]['content']}")
