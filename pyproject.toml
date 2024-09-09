@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "toolhouse-cookbook"
+version = "0.1.0"
+description = ""
+authors = ["Alex Fazio <alessandro.fazio@me.com>"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+ollama = "^0.3.2"
+toolhouse = "^1.2.0"
+openai = "^1.44.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
