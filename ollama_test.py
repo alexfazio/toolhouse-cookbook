@@ -10,6 +10,13 @@ except Exception as e:
     print(f"Error initializing Toolhouse SDK: {e}")
     sys.exit(1)
 
+# Print available tools
+print("\nAvailable tools in Toolhouse store:")
+available_tools = th.get_tools()
+for tool in available_tools:
+    print(f"- {tool['function']['name']}")
+print()  # Add an empty line for better readability
+
 # Initialize the OpenAI client with Ollama's endpoint
 client = OpenAI(
     base_url="http://localhost:11434/v1",
@@ -36,7 +43,7 @@ try:
     response = client.chat.completions.create(
         model=MODEL,
         messages=messages,
-        tools=th.get_tools(),
+        tools=available_tools,  # Use the available_tools we fetched earlier
     )
     print("Initial completion request successful.")
 except Exception as e:
@@ -59,7 +66,7 @@ try:
     response = client.chat.completions.create(
         model=MODEL,
         messages=messages,
-        tools=th.get_tools(),
+        tools=available_tools,  # Use the available_tools we fetched earlier
     )
     print("Final completion request successful.")
 except Exception as e:
