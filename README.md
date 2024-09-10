@@ -5,10 +5,6 @@
   </picture>
 </a>
 
-Here's the README adapted for Toolhouse:
-
-# Toolhouse Cookbook
-
 The Toolhouse Cookbook provides code and guides designed to help developers build with AI function calling, offering copy-able code snippets that you can easily integrate into your own projects.
 
 ## Prerequisites
